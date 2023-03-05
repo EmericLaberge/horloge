@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+
+</head>
+<style>
+  html{background-color:#c0c0c0;}
+  div{text-orientation: sideways;
+  }
+</style>
+<body> 
+<h1>Horloge 24h d'Emeric</h1>
+<ul>
+  <li>Le contour jaune représente le jour , le noir représente la nuit.</li>
+  <li>L'aiguille mauve affiche les heures, la bleue affiche les minutes et la verte affiche les secondes.</li>
+  <li>La couleur des ronds représente la présence (rouge) ou l'absence (vert) de nuages pour chaque heure. </li>
+  <li>La phase de la lune est également présente dans le quatrième quadrant de l'horloge. </li>
+</ul>  
+
+
+<div>
+<svg id="monhorloge" viewBox="0 0 400 400 " width="800px" height="800px">
+
+
+
+  <circle cx="200" cy="200" r="170" fill="#A3B9FF" stroke="#393C3B" stroke-width="10" />
+  
+  
+
+  <circle cx="260" cy="160" r="40" stroke-width="5" fill="none" stroke="black"/>
+
+  
+  
+  
+<g id="meteo">
+</g>
+
+
+<circle cx="200" cy="200" r="170" fill="transparent" stroke="yellow" stroke-width="15" />
+<circle id="nuit" cx="200" cy="200" r="170" fill="transparent" stroke="#2B2B2C" stroke-width="15" />
+<circle cx="220" cy="260" r="40"  fill="yellow"/>
+<circle id="lune" cx="255" cy="260" r="40"  fill="#A3B9FF" />
+
+<path id="aiguilleHeure" d="M 195 200 H 205 V 80 H 213 L 200 60 L 187 80 H 195 z "
+    fill="purple" stroke="none" transform="rotate(15 200 200)">
+    <animateTransform id="transAigHr"
+    attributeName="transform"
+    attributeType="XML"
+    type="rotate"
+    from="0 200 200"
+    to="360 200 200"
+    dur="24h"
+    repeatCount="indefinite"/>
+
+  </path>
+  <path id="aiguilleSec" d="M 258 160 H 262 V 142 H 264 L 260 134 L 256 142 H 258"
+    fill="green" stroke="none" transform="rotate(15 260 160)">
+    <animateTransform id="transAigSec"
+    attributeName="transform"
+    attributeType="XML"
+    type="rotate"
+    from="0  260 160"
+    to="360 260 160"
+    dur="60s"
+    repeatCount="indefinite"/>
+  </path>
+
+
+
+  <circle cx="140" cy="160" r="40" stroke-width="5" fill="none" stroke="black"/>
+
+  <path id="aiguilleMin" d="M 138 160 H 142 V 142 H 144 L 140 134 L 136 142 H 138 "
+    fill="blue" stroke="none" transform="rotate(15 140 160)">
+    <animateTransform id="transAigMin"
+    attributeName="transform"
+    attributeType="XML"
+    type="rotate"
+    from="0 140 160"
+    to="360 140 160"
+    dur="1h"
+    repeatCount="indefinite"/>
+
+  </path>
+  <circle cx="200" cy="200" r="10"/>
+  <circle cx="140" cy="160" r="3"/>
+  <circle cx="260" cy="160" r="3"/>
+
+
+
+
+<text x="100" y="250" id="afficherDate"
+        font-family="Verdana"
+        font-size="15">
+</text>
+<text x="100" y="265" id="afficherHr"
+        font-family="Verdana"
+        font-size="15">
+</text>
+
+</svg>
+</div>
+
+
+<script src="horloge.js"></script>
+
+</body>
+</html>
